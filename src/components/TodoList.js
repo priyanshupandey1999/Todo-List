@@ -9,8 +9,11 @@ function TodoList() {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
+    let result = todos.filter((obj) => {
+      return obj.text !== todo.text;
+    });
 
-    const newTodos = [todo, ...todos];
+    const newTodos = [todo, ...result];
 
     setTodos(newTodos);
   };
